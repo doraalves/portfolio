@@ -1,5 +1,4 @@
 # portfolio
-Portfólio 
 Olá! Sou Izadora, uma desenvolvedora de software de 25 anos apaixonada por tecnologia. Atualmente, trabalho como Desenvolvedora Júnior na Americanas, onde tenho a oportunidade de contribuir para soluções inovadoras.
 
 Com conhecimento em várias linguagens, como HTML, CSS, Sass, Python e Django, sou capaz de enfrentar diferentes desafios. Minhas habilidades técnicas, aliadas à minha criatividade e atenção aos detalhes, me permitem transformar ideias em códigos de alta qualidade.
