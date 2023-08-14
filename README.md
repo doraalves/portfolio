@@ -1,8 +1,31 @@
-# portfolio
-Olá! Sou Izadora, uma desenvolvedora de software de 25 anos apaixonada por tecnologia. Atualmente, trabalho como Desenvolvedora Júnior na Americanas, onde tenho a oportunidade de contribuir para soluções inovadoras.
+# Portfólio
 
-Com conhecimento em várias linguagens, como HTML, CSS, Sass, Python e Django, sou capaz de enfrentar diferentes desafios. Minhas habilidades técnicas, aliadas à minha criatividade e atenção aos detalhes, me permitem transformar ideias em códigos de alta qualidade.
+Olá! Sou Izadora, uma apaixonada desenvolvedora de software de 25 anos. Experiência na Americanas como Desenvolvedora Júnior, contribuindo para soluções inovadoras. Habilidades em HTML, CSS, Sass, React, Python e Django. Transformo ideias em códigos de alta qualidade com criatividade. Atualmente, construo meu portfólio para destacar projetos e competências. Abordagem minuciosa e compromisso com a excelência garantem sucesso. Movida pela curiosidade, estou pronta para fazer diferença e crescer continuamente.
 
-Estou empenhada em meu crescimento profissional, e atualmente estou desenvolvendo meu portfólio para destacar meus projetos e competências. Minha abordagem minuciosa e comprometimento com a excelência garantem a conclusão bem-sucedida de cada projeto.
 
-Sou movida pela curiosidade e sempre estou disposta a aprender. Com entusiasmo e habilidades sólidas, pretendo fazer uma diferença significativa no mundo da tecnologia, continuando a aprimorar minhas habilidades ao longo da minha carreira
+# Como executar o projeto
+```bash
+# clonar repositório
+git clone https://github.com/doraalves/portfolio.git
+
+# 
+
+#
+
+```
+
+# Tecnologias utilizadas
+## Front end
+- HTML
+- SASS
+- React
+
+## Back end
+-
+
+# Autoras
+- Izadora Alves
+https://www.linkedin.com/in/izadoraalves/
+
+- Sorahia Cristina
+https://www.linkedin.com/in/sorahia-cristina/
