@@ -17,7 +17,7 @@ git clone https://github.com/doraalves/portfolio.git
 # Tecnologias utilizadas
 ## Front end
 - HTML
-- SASS
+- Styled Components
 - React
 
 ## Back end
