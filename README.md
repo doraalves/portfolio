@@ -18,7 +18,7 @@ git clone https://github.com/doraalves/portfolio.git
 ## Front end
 - HTML
 - SASS
-- React
+- React js
 
 ## Back end
 -
