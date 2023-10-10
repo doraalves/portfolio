@@ -1,13 +1,17 @@
 import './App.css';
 
-import NavbarComponent from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
+// TODO: Animação de ondinha
 
 function App() {
   return (
-    <div>
-      <h1>Teste!</h1>
-      <NavbarComponent />
-    </div>
+    <>
+      <Navbar />
+      {/* TODO: Main */}
+      {/* TODO: Footer */}
+      <section>
+      </section>
+    </>
   ); 
 }
 
