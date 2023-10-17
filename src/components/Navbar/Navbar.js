@@ -1,29 +1,34 @@
 import React from "react";
 import {
   Container,
-  NavContainer,
   Navigation,
+  NavLink,
   LightMode
 } from "./styled.js"
-
+import Burger from "./BtnBurguer/Burger"
 import Moon from "../../assets/moon.svg"
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <Container>
-      <NavContainer>
-        <h2>Izadora</h2>
+    <>
+      <Container>
+        <NavLink to="/">
+          {/* TODO: quando clicar, voltar para o topo da página */}
+          <h2>Izadora</h2>
+        </NavLink>
+        <Burger />
         <Navigation>
-          <a>Projetos</a>
-          <a>Contato</a>
-          <a>Currículo</a>
+          {/* TODO: linkar para o pedaço especifico da página */}
+          <NavLink>Projetos</NavLink>
+          <NavLink>Contato</NavLink>
+          <NavLink>Currículo</NavLink>
         </Navigation>
       <LightMode>
         {/* TODO: lógica para trocar de svg e tals */}
         <img src={Moon} alt="Dark mode"/>
       </LightMode>
-      </NavContainer>
-    </Container>
+      </Container>
+    </>
   );
 }
 

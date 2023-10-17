@@ -1,34 +1,15 @@
 import styled from "styled-components";
+import { NavLink as Link } from 'react-router-dom';
 
-export const Header = styled.header`
-  `;
-
-export const Container = styled.section`
+export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  position: sticky;
-  top: 0px;
-  /* padding: 0 70px; */
-  
+  justify-content: flex-start;
+  padding: 0.5rem calc((100vw - 1000px) / 2);
+
   background-color: #262a2f;
-  
-  @media screen 
-  and (max-width: 1200px)
-  and (min-width: 768px) {
-    & *{
-      transition: 2s;
-    }
-  }
-  /* TODO: menu hamburguer para telas menores que 768px */
-  `;
 
-export const NavContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-
-  * {
+  & * {
+    transition: 1.5s;
     cursor: pointer;
     font-family: League Spartan;
   }
@@ -38,37 +19,49 @@ export const NavContainer = styled.div`
 
     color: #ff6060;
   }
-  @media screen and (max-width: 1200px) {
-    h2 {
-      padding-right: 60px;
-    }
-  }
-  @media screen and (min-width: 992px) {
-    h2 {
-      padding-right: 100px;
-    }
+  @media screen 
+  and (min-width: 768px) 
+  and (max-width: 1199px) {
+    padding: 0 50px;
   }
 `;
 
-export const Navigation = styled.nav`
+export const NavLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 100%;
+
+  &:hover {
+    color: #ff6060;
+  }
+`;
+
+export const Navigation = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  white-space: nowrap;
   font-size: 18px;
   font-weight: 300;
 
-  color: #fefefe;
-
-  @media screen and (max-width: 1200px) {
-    * {
-      padding-right: 60px;
-    }
+  & * {
+    color: #fefefe;
   }
-  @media screen and (min-width: 992px) {
-    * {
-      padding-right: 80px;
-    }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
 export const LightMode = styled.button`
-  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+
   background-color: transparent;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
