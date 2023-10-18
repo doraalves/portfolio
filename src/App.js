@@ -1,16 +1,25 @@
+import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom'
+import Home from './pages';
 
-import NavbarComponent from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
+// TODO: Animação de ondinha
 
 function App() {
   return (
-    <>
-      <h1>Teste!</h1>
-      <NavbarComponent />
-
-      <Footer />
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={ <Home/> } />
+        {/* TODO: Main */}
+        {/* TODO: Footer */}
+      </Routes>
+    </Router>
   ); 
 }
 
