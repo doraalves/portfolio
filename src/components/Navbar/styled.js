@@ -1,12 +1,21 @@
 import styled from "styled-components";
 import { NavLink as Link } from 'react-router-dom';
 
+const colors = {
+  background: '#262a2f',
+  logo: '#ff6060',
+  font: '#fefefe',
+  hover: '#ff6060',
+  moon: '',
+  sun: '',
+};
+
 export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 0.5rem calc((100vw - 1000px) / 2);
 
-  background-color: #262a2f;
+  background-color: ${colors.background};
 
   & * {
     transition: 1.5s;
@@ -17,7 +26,7 @@ export const Container = styled.div`
     font-size: 30px;
     font-weight: 500;
 
-    color: #ff6060;
+    color: ${colors.logo};
   }
   @media screen 
   and (min-width: 768px) 
@@ -33,7 +42,7 @@ export const NavLink = styled(Link)`
   height: 100%;
 
   &:hover {
-    color: #ff6060;
+    color: ${colors.hover};
   }
 `;
 
@@ -47,7 +56,7 @@ export const Navigation = styled.a`
   font-weight: 300;
 
   & * {
-    color: #fefefe;
+    color: ${colors.font};
   }
   @media screen and (max-width: 768px) {
     display: none;
@@ -61,6 +70,10 @@ export const LightMode = styled.button`
   width: 100vw;
 
   background-color: transparent;
+
+  :hover{
+
+  }
   @media screen and (max-width: 768px) {
     display: none;
   }
