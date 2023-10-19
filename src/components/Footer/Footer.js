@@ -37,7 +37,7 @@ function Footer() {
         <div>
           <img src={whatsapp}></img>
           <a href="https://api.whatsapp.com/send?phone=5521982419979&text=Oi,%20gostei%20do%20seu%20trabalho.%20Podemos%20conversar?">
-            +55 (021) 98241-9979
+            +55 (021) 98241-xxxx
           </a>
         </div>
         <div>
