@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink as Link } from 'react-router-dom';
 
-const colors = {
+export const colors = {
   background: '#262a2f',
   logo: '#ff6060',
   font: '#fefefe',

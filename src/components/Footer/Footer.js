@@ -1,31 +1,53 @@
 import React from "react";
 import {
-  FooterContainer,
   Container,
   Title,
-  Social,
-  Contact,
-  FooterContainer
+  Social
 } from "./styled.js"
+
+import linkedin from "../../assets/linkedin.svg"
+import github from "../../assets/github.svg"
+import whatsapp from "../../assets/whatsapp.svg"
+import gmail from "../../assets/gmail.svg"
 
 function Footer() {
   return (
-    <FooterContainer>
-      <Container>
-        <Title>
-          <h2>Izadora</h2>
-          <h4>© 2023 IZADORA ALVES. Todos os direitos reservados.</h4>
-        </Title>
-        <Social>
-          <a>Linkedin</a>
-          <a>GitHub</a>
-        </Social>
-        <Contact>
-          <a>zipzop</a>
-          <a>email</a>
-        </Contact>
-      </Container>
-    </FooterContainer>
+    <Container>
+      <Title>
+        <h2>Izadora</h2>
+        <h4>© 2023 IZADORA ALVES. Todos os direitos reservados.</h4>
+      </Title>
+      <Social>
+        <strong>Redes Sociais</strong>
+        <div>
+          <img src={linkedin}></img>
+          <a href="linkedin.com/in/izadoraalves">
+            /izadoraalves
+          </a>
+        </div>
+        <div>
+          <img src={github}></img>
+          <a href="https://github.com/doraalves">
+            /doraalves
+          </a>
+        </div>
+      </Social>
+      <Social>
+        <strong>Contatos</strong>
+        <div>
+          <img src={whatsapp}></img>
+          <a href="https://api.whatsapp.com/send?phone=5521982419979&text=Oi,%20gostei%20do%20seu%20trabalho.%20Podemos%20conversar?">
+            +55 (021) 98241-9979
+          </a>
+        </div>
+        <div>
+          <img src={gmail}></img>
+          <a href="mailto:izadorapmalves@gmail.com">
+            izadorapmalves@
+          </a>
+        </div>
+      </Social>
+    </Container>
   );
 }
 
