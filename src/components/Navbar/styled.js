@@ -20,7 +20,6 @@ export const Container = styled.div`
   & * {
     transition: 1.5s;
     cursor: pointer;
-    font-family: League Spartan;
   }
   h2 {
     font-size: 30px;

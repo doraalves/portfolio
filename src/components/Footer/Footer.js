@@ -5,10 +5,10 @@ import {
   Social
 } from "./styled.js"
 
-import linkedin from "../../assets/linkedin.svg"
-import github from "../../assets/github.svg"
-import whatsapp from "../../assets/whatsapp.svg"
-import gmail from "../../assets/gmail.svg"
+import linkedin from "../../assets/icons/linkedin.svg"
+import github from "../../assets/icons/github.svg"
+import whatsapp from "../../assets/icons/whatsapp.svg"
+import gmail from "../../assets/icons/gmail.svg"
 
 function Footer() {
   return (
