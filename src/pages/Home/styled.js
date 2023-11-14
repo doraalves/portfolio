@@ -8,15 +8,14 @@ export const colors = {
 
 export const Container = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: column;
-    padding: 0.5rem calc((100vw - 1000px) / 2);
     
     background-color: ${colors.background};
 `;
 
 export const Perfil = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 
@@ -62,6 +61,7 @@ export const Title = styled.div`
     flex-direction: column;
 
     h5{
+        font-size: 12px;
         font-weight: 400;
         color: ${colors.title};
     }
