@@ -6,11 +6,8 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-direction: row;
     padding: 0.5rem calc((100vw - 1000px) / 2);
-    background-color: ${colors.background};
     
-    & *{
-      font-family: League Spartan;
-    }
+    background-color: ${colors.background};
 `;
 
 export const Title = styled.div`
