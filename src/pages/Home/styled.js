@@ -6,10 +6,11 @@ export const colors = {
     fonts: '#fff',
 }
 
-export const Container = styled.div`
+export const Container = styled.main`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 78px;
     
     background-color: ${colors.background};
 `;

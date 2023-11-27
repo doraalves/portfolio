@@ -15,6 +15,9 @@ export const colors = {
 export const Container = styled.header`
   display: flex;
   justify-content: flex-start;
+  top: 0;
+  width: 100%;
+  position: fixed;
 
   background-color: ${colors.background};
 
