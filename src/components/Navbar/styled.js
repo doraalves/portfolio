@@ -6,14 +6,15 @@ export const colors = {
   logo: '#ff6060',
   font: '#fefefe',
   hover: '#ff6060',
+
+  //TODO: Fazer as cores da lua e do sol
   moon: '',
   sun: '',
 };
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
   justify-content: flex-start;
-  padding: 0.5rem calc((100vw - 1000px) / 2);
 
   background-color: ${colors.background};
 
