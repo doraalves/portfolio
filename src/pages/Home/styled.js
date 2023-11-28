@@ -11,6 +11,7 @@ export const Container = styled.main`
     align-items: center;
     flex-direction: column;
     margin-top: 78px;
+
     background-color: ${colors.background};
 `;
 
@@ -31,6 +32,8 @@ export const Perfil = styled.div`
     ul{
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 26px;
         li img{
             height: 50px;

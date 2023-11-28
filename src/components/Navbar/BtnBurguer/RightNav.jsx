@@ -12,7 +12,7 @@ const Ul = styled.ul`
       display: none;
     }
   }
-
+/* TODO: Descobri pq as linguagens aparece quando clica no hamburguer */
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;
@@ -22,7 +22,6 @@ const Ul = styled.ul`
     height: 100vh;
     width: 100%;
     padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     
     background-color: #262a2f;
