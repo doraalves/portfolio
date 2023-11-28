@@ -32,8 +32,7 @@ export const Container = styled.header`
     color: ${colors.logo};
   }
   @media screen 
-  and (min-width: 768px) 
-  and (max-width: 1199px) {
+  and (min-width: 768px) {
     padding: 0 50px;
   }
 `;
