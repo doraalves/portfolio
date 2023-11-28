@@ -8,3 +8,16 @@
 
   font-family: League Spartan;
 }
+
+html ::-webkit-scrollbar {
+  width: 3px;
+}
+
+html ::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #ff6060;
+}
+
+html ::-webkit-scrollbar-track {
+  background: #262a2f;
+}

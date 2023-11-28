@@ -11,7 +11,6 @@ export const Container = styled.main`
     align-items: center;
     flex-direction: column;
     margin-top: 78px;
-    
     background-color: ${colors.background};
 `;
 
