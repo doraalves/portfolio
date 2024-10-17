@@ -23,11 +23,11 @@ function Footer() {
           <strong>Redes Sociais</strong>
           <div>
             <img src={linkedin}></img>
-            <a href="https://linkedin.com/in/izadoraalves">/izadoraalves</a>
+            <a href="https://linkedin.com/in/izadoraalves" target="_black" rel="external">/izadoraalves</a>
           </div>
           <div>
             <img src={github}></img>
-            <a href="https://github.com/doraalves">/doraalves</a>
+            <a href="https://github.com/doraalves" target="_blank" rel="external">/doraalves</a>
           </div>
         </Sociais>
         <Sociais>
