@@ -23,18 +23,34 @@ function Footer() {
           <strong>Redes Sociais</strong>
           <div>
             <img src={linkedin}></img>
-            <a href="https://linkedin.com/in/izadoraalves" target="_black" rel="external">/izadoraalves</a>
+            <a
+              href="https://linkedin.com/in/izadoraalves"
+              target="_black"
+              rel="external"
+            >
+              /izadoraalves
+            </a>
           </div>
           <div>
             <img src={github}></img>
-            <a href="https://github.com/doraalves" target="_blank" rel="external">/doraalves</a>
+            <a
+              href="https://github.com/doraalves"
+              target="_blank"
+              rel="external"
+            >
+              /doraalves
+            </a>
           </div>
         </Sociais>
         <Sociais>
           <strong>Contatos</strong>
           <div>
             <img src={whatsapp}></img>
-            <a href="https://api.whatsapp.com/send?phone=5521982419979&text=Oi,%20gostei%20do%20seu%20trabalho.%20Podemos%20conversar?">
+            <a
+              href="https://api.whatsapp.com/send?phone=5521982419979&text=Oi,%20gostei%20do%20seu%20trabalho.%20Podemos%20conversar?"
+              target="_blank"
+              rel="external"
+            >
               +55 (021) 98241-xxxx
             </a>
           </div>
