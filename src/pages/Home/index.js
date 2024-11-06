@@ -1,6 +1,10 @@
 import React from 'react'
+
 import {
-  Container,
+  Container
+} from "../styleds"
+
+import {
   Perfil,
   Wrapper,
   Section,

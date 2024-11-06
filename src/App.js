@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom'
 import Home from './pages/Home';
+import Project from "./pages/Projects";
 
 // TODO: Animação de ondinha
 
@@ -17,7 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={ <Home/> } />
-        {/* TODO: Main */}
+        <Route path="/" element={ <Project/> } />
       </Routes>
       <Footer />
     </Router>
