@@ -22,9 +22,6 @@ git clone https://github.com/doraalves/portfolio.git
 ## Back end
 -
 
-# Autoras
+# Autora
 - Izadora Alves
 https://www.linkedin.com/in/izadoraalves/
-
-- Sorahia Cristina
-https://www.linkedin.com/in/sorahia-cristina/
