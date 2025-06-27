@@ -13,6 +13,8 @@ import whatsapp from "../../assets/icons/whatsapp.svg";
 import gmail from "../../assets/icons/gmail.svg";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <Container>
       <Title>
@@ -61,7 +63,7 @@ function Footer() {
         </Sociais>
       </Redes>
       <Copyright>
-        <h4>© 2023 IZADORA ALVES. Todos os direitos reservados.</h4>
+        <h4>© {currentYear} IZADORA ALVES. Todos os direitos reservados.</h4>
       </Copyright>
     </Container>
   );
