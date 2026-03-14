@@ -1,27 +1,27 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom'
-import Home from './pages/Home';
+import React, { useState } from 'react'
+import GlobalStyle from './styles/GlobalStyle'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
 
-// TODO: Animação de ondinha
+export default function App() {
+  const [page, setPage] = useState('home')
 
-function App() {
+  const navigate = (id) => {
+    setPage(id)
+    window.scrollTo(0, 0)
+  }
+
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={ <Home/> } />
-        {/* TODO: Main */}
-      </Routes>
-      <Footer />
-    </Router>
-  ); 
+    <>
+      <GlobalStyle />
+      <Navbar page={page} onNavigate={navigate} />
+      {page === 'home'     && <Home     onNavigate={navigate} />}
+      {page === 'about'    && <About    />}
+      {page === 'projects' && <Projects />}
+      {page === 'contact'  && <Contact  />}
+    </>
+  )
 }
-
-export default App;
