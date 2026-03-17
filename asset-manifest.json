@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.12e0dd90.js",
+    "main.js": "/portfolio/static/js/main.26451182.js",
     "static/media/p.gleiInsta.jpg": "/portfolio/static/media/p.gleiInsta.99b7321615f3070fbbfc.jpg",
     "static/media/demi-rockinrio.png": "/portfolio/static/media/demi-rockinrio.37975ed716d8c7b13221.png",
     "static/media/billieInsta.jpg": "/portfolio/static/media/billieInsta.11f0210dc78db5b1b1d3.jpg",
@@ -12,9 +12,9 @@
     "static/media/p-v-a4-musica-playlist.jpg": "/portfolio/static/media/p-v-a4-musica-playlist.cc9e225974c56d0a8c97.jpg",
     "static/media/curriculo-izadora.pdf": "/portfolio/static/media/curriculo-izadora.47e7e5330fa53f188fac.pdf",
     "index.html": "/portfolio/index.html",
-    "main.12e0dd90.js.map": "/portfolio/static/js/main.12e0dd90.js.map"
+    "main.26451182.js.map": "/portfolio/static/js/main.26451182.js.map"
   },
   "entrypoints": [
-    "static/js/main.12e0dd90.js"
+    "static/js/main.26451182.js"
   ]
 }
