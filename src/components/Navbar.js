@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 import {
   Nav,
   Logo,
@@ -6,17 +7,63 @@ import {
   NavBtn,
   Sep,
   IconLink,
+  ThemeToggle,
   HamburgerBtn,
   MobileMenu,
   MobileNavBtn,
+  MobileBottom,
   MobileSocials,
   MobileIconLink,
+  MobileThemeToggle,
 } from "../styles/Navbar.styled";
 import { GitHubIcon, LinkedInIcon, InstagramIcon } from "./Icons";
 
+function SunIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
+
 export default function Navbar({ page, onNavigate }) {
-  const dark = page === "home";
   const [menuOpen, setMenuOpen] = useState(false);
+  const { dark: themeDark, toggle } = useTheme();
+  const navDark = page === "home" && themeDark;
 
   const navigate = (id) => {
     setMenuOpen(false);
@@ -25,36 +72,35 @@ export default function Navbar({ page, onNavigate }) {
 
   return (
     <>
-      <Nav $dark={dark}>
-        <Logo $dark={dark} onClick={() => navigate("home")}>
+      <Nav $dark={navDark}>
+        <Logo $dark={navDark} onClick={() => navigate("home")}>
           iza.dev
         </Logo>
 
-        {/* Desktop links */}
+        {/* Desktop links — esconde no mobile */}
         <Links>
           <li>
-            <NavBtn $dark={dark} onClick={() => navigate("about")}>
+            <NavBtn $dark={navDark} onClick={() => navigate("about")}>
               sobre
             </NavBtn>
           </li>
           <li>
-            <NavBtn $dark={dark} onClick={() => navigate("projects")}>
+            <NavBtn $dark={navDark} onClick={() => navigate("projects")}>
               projetos
             </NavBtn>
           </li>
           <li>
-            <NavBtn $dark={dark} onClick={() => navigate("contact")}>
+            <NavBtn $dark={navDark} onClick={() => navigate("contact")}>
               contato
             </NavBtn>
           </li>
-          <Sep $dark={dark} />
+          <Sep $dark={navDark} />
           <li>
             <IconLink
               href="https://github.com/doraalves"
               target="_blank"
               rel="noreferrer"
-              $dark={dark}
-              aria-label="GitHub"
+              $dark={navDark}
             >
               <GitHubIcon />
             </IconLink>
@@ -64,8 +110,7 @@ export default function Navbar({ page, onNavigate }) {
               href="https://www.linkedin.com/in/izadoraalves/"
               target="_blank"
               rel="noreferrer"
-              $dark={dark}
-              aria-label="LinkedIn"
+              $dark={navDark}
             >
               <LinkedInIcon />
             </IconLink>
@@ -75,17 +120,27 @@ export default function Navbar({ page, onNavigate }) {
               href="https://www.instagram.com/izadoraaalves"
               target="_blank"
               rel="noreferrer"
-              $dark={dark}
-              aria-label="Instagram"
+              $dark={navDark}
             >
               <InstagramIcon />
             </IconLink>
           </li>
+          <Sep $dark={navDark} />
+          {/* Toggle só no desktop — fica no final */}
+          <li>
+            <ThemeToggle
+              $dark={navDark}
+              onClick={toggle}
+              aria-label="Alternar tema"
+            >
+              {themeDark ? <SunIcon /> : <MoonIcon />}
+            </ThemeToggle>
+          </li>
         </Links>
 
-        {/* Hamburger */}
+        {/* Mobile: só o hamburguer — toggle fica dentro do menu */}
         <HamburgerBtn
-          $dark={dark}
+          $dark={navDark}
           className={menuOpen ? "open" : ""}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
@@ -96,49 +151,43 @@ export default function Navbar({ page, onNavigate }) {
         </HamburgerBtn>
       </Nav>
 
-      {/* Mobile drawer */}
-      <MobileMenu $open={menuOpen} $dark={dark}>
-        <MobileNavBtn $dark={dark} onClick={() => navigate("home")}>
-          início
-        </MobileNavBtn>
-        <MobileNavBtn $dark={dark} onClick={() => navigate("about")}>
-          sobre
-        </MobileNavBtn>
-        <MobileNavBtn $dark={dark} onClick={() => navigate("projects")}>
+      {/* Menu mobile */}
+      <MobileMenu $open={menuOpen} $themeDark={themeDark}>
+        <MobileNavBtn onClick={() => navigate("home")}>início</MobileNavBtn>
+        <MobileNavBtn onClick={() => navigate("about")}>sobre</MobileNavBtn>
+        <MobileNavBtn onClick={() => navigate("projects")}>
           projetos
         </MobileNavBtn>
-        <MobileNavBtn $dark={dark} onClick={() => navigate("contact")}>
-          contato
-        </MobileNavBtn>
-        <MobileSocials>
-          <MobileIconLink
-            href="https://github.com/doraalves"
-            target="_blank"
-            rel="noreferrer"
-            $dark={dark}
-            aria-label="GitHub"
-          >
-            <GitHubIcon />
-          </MobileIconLink>
-          <MobileIconLink
-            href="https://www.linkedin.com/in/izadoraalves/"
-            target="_blank"
-            rel="noreferrer"
-            $dark={dark}
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon />
-          </MobileIconLink>
-          <MobileIconLink
-            href="https://www.instagram.com/izadoraaalves"
-            target="_blank"
-            rel="noreferrer"
-            $dark={dark}
-            aria-label="Instagram"
-          >
-            <InstagramIcon />
-          </MobileIconLink>
-        </MobileSocials>
+        <MobileNavBtn onClick={() => navigate("contact")}>contato</MobileNavBtn>
+        <MobileBottom>
+          <MobileSocials>
+            <MobileIconLink
+              href="https://github.com/doraalves"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitHubIcon />
+            </MobileIconLink>
+            <MobileIconLink
+              href="https://www.linkedin.com/in/izadoraalves/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LinkedInIcon />
+            </MobileIconLink>
+            <MobileIconLink
+              href="https://www.instagram.com/izadoraaalves"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <InstagramIcon />
+            </MobileIconLink>
+          </MobileSocials>
+          <MobileThemeToggle onClick={toggle}>
+            {themeDark ? <SunIcon /> : <MoonIcon />}
+            {themeDark ? "Claro" : "Escuro"}
+          </MobileThemeToggle>
+        </MobileBottom>
       </MobileMenu>
     </>
   );

@@ -1,23 +1,31 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
-`
+`;
 
 const pulse = keyframes`
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
-`
+`;
 
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
   min-height: 600px;
-  background: #0E0B09;
   overflow: hidden;
-`
+  transition: background 0.3s;
+
+  /* Light: fundo claro quente */
+  background: #f0ebe3;
+
+  /* Dark: fundo escuro */
+  [data-theme="dark"] & {
+    background: #0e0b09;
+  }
+`;
 
 export const Content = styled.div`
   position: relative;
@@ -33,18 +41,18 @@ export const Content = styled.div`
   @media (max-width: 768px) {
     padding: 0 1.5rem;
   }
-`
+`;
 
 export const Inner = styled.div`
   max-width: 660px;
-`
+`;
 
 export const Tag = styled.p`
   font-family: var(--mono);
   font-size: 0.74rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #D62828;
+  color: var(--accent);
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
@@ -53,41 +61,49 @@ export const Tag = styled.p`
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     width: 2rem;
     height: 1px;
-    background: #D62828;
+    background: var(--accent);
   }
-`
+`;
 
 export const Title = styled.h1`
   font-family: var(--serif);
   font-size: clamp(2.8rem, 6vw, 5.5rem);
   line-height: 1;
   margin-bottom: 1.4rem;
-  color: #F5F0EA;
+  color: var(--ink);
+
+  [data-theme="dark"] & {
+    color: #f5f0ea;
+  }
 
   em {
     font-style: italic;
-    color: #D62828;
+    color: var(--accent);
   }
-`
+`;
 
 export const Bio = styled.p`
   font-size: 1rem;
-  color: rgba(245, 240, 234, 0.5);
   max-width: 50ch;
   margin: 0 auto 2.5rem;
   font-weight: 300;
   line-height: 1.85;
-`
+  color: var(--ink-soft);
+
+  [data-theme="dark"] & {
+    color: rgba(245, 240, 234, 0.5);
+  }
+`;
 
 export const Actions = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-`
+`;
 
 export const BtnPrimary = styled.button`
   display: inline-flex;
@@ -106,10 +122,10 @@ export const BtnPrimary = styled.button`
   transition: all 0.2s;
 
   &:hover {
-    background: #A01415;
+    background: #a01415;
     transform: translateY(-2px);
   }
-`
+`;
 
 export const BtnOutline = styled.button`
   display: inline-flex;
@@ -123,16 +139,25 @@ export const BtnOutline = styled.button`
   border-radius: 2px;
   cursor: pointer;
   background: transparent;
-  color: rgba(245, 240, 234, 0.8);
-  border: 1.5px solid rgba(245, 240, 234, 0.2);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
   transition: all 0.2s;
 
   &:hover {
-    border-color: rgba(245, 240, 234, 0.6);
-    color: white;
+    border-color: var(--ink);
     transform: translateY(-2px);
   }
-`
+
+  [data-theme="dark"] & {
+    color: rgba(245, 240, 234, 0.8);
+    border-color: rgba(245, 240, 234, 0.2);
+
+    &:hover {
+      border-color: rgba(245, 240, 234, 0.6);
+      color: white;
+    }
+  }
+`;
 
 export const FooterLine = styled.div`
   position: absolute;
@@ -148,44 +173,57 @@ export const FooterLine = styled.div`
     left: 1.5rem;
     right: 1.5rem;
   }
-`
+`;
 
 export const Location = styled.span`
   font-family: var(--mono);
   font-size: 0.67rem;
   letter-spacing: 0.14em;
-  color: rgba(245, 240, 234, 0.22);
   text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  color: var(--ink-soft);
+  opacity: 0.5;
+
+  [data-theme="dark"] & {
+    color: rgba(245, 240, 234, 0.22);
+    opacity: 1;
+  }
 
   &::before {
-    content: '';
+    content: "";
     width: 1.5rem;
     height: 1px;
-    background: rgba(245, 240, 234, 0.15);
+    background: currentColor;
   }
-`
+`;
 
 export const Avail = styled.span`
   font-family: var(--mono);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
-  color: rgba(245, 240, 234, 0.35);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--ink-soft);
+  opacity: 0.6;
+
+  [data-theme="dark"] & {
+    color: rgba(245, 240, 234, 0.35);
+    opacity: 1;
+  }
 
   @media (min-width: 1200px) {
     font-size: 0.95rem;
   }
-`
+`;
 
 export const Dot = styled.span`
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #5EBB7C;
+  background: #5ebb7c;
   animation: ${pulse} 2s infinite;
-`
+  opacity: 1 !important;
+`;

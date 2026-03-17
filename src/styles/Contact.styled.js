@@ -1,9 +1,9 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
-`
+`;
 
 export const Page = styled.div`
   background: var(--bg);
@@ -14,13 +14,13 @@ export const Page = styled.div`
   justify-content: center;
   padding: 6rem 1.5rem 3rem;
   animation: ${fadeUp} 0.4s ease both;
-`
+`;
 
 export const Inner = styled.div`
   width: 100%;
   max-width: 600px;
   text-align: center;
-`
+`;
 
 export const SectionTag = styled.p`
   font-family: var(--mono);
@@ -35,12 +35,12 @@ export const SectionTag = styled.p`
   margin-bottom: 0.7rem;
 
   &::before {
-    content: '';
+    content: "";
     width: 1.5rem;
     height: 1px;
     background: var(--accent);
   }
-`
+`;
 
 export const H2 = styled.h2`
   font-family: var(--serif);
@@ -53,7 +53,7 @@ export const H2 = styled.h2`
     font-style: italic;
     color: var(--accent);
   }
-`
+`;
 
 export const SubText = styled.p`
   font-size: 1rem;
@@ -62,7 +62,7 @@ export const SubText = styled.p`
   max-width: 44ch;
   margin: 0 auto 2.5rem;
   line-height: 1.8;
-`
+`;
 
 export const DirectLinks = styled.div`
   display: flex;
@@ -70,7 +70,7 @@ export const DirectLinks = styled.div`
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-`
+`;
 
 export const DirectLink = styled.a`
   display: inline-flex;
@@ -91,16 +91,17 @@ export const DirectLink = styled.a`
     border-color: var(--accent);
     transform: translateY(-2px);
   }
-`
+`;
 
 export const FormCard = styled.div`
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 2rem;
   text-align: left;
   margin-bottom: 2rem;
-`
+  transition: background 0.3s, border-color 0.3s;
+`;
 
 export const FormTitle = styled.p`
   font-family: var(--mono);
@@ -109,11 +110,11 @@ export const FormTitle = styled.p`
   text-transform: uppercase;
   color: var(--ink-soft);
   margin-bottom: 1.25rem;
-`
+`;
 
 export const FormGroup = styled.div`
   margin-bottom: 1rem;
-`
+`;
 
 export const Label = styled.label`
   display: block;
@@ -123,7 +124,7 @@ export const Label = styled.label`
   text-transform: uppercase;
   color: var(--ink-soft);
   margin-bottom: 0.4rem;
-`
+`;
 
 export const Input = styled.input`
   width: 100%;
@@ -131,16 +132,22 @@ export const Input = styled.input`
   font-family: var(--sans);
   font-size: 0.9rem;
   color: var(--ink);
-  background: var(--bg);
+  background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 2px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.3s;
 
-  &:focus { border-color: var(--accent); }
-  &::placeholder { color: rgba(107, 100, 96, 0.5); }
-  &:disabled { opacity: 0.6; }
-`
+  &:focus {
+    border-color: var(--accent);
+  }
+  &::placeholder {
+    color: rgba(107, 100, 96, 0.5);
+  }
+  &:disabled {
+    opacity: 0.6;
+  }
+`;
 
 export const Textarea = styled.textarea`
   width: 100%;
@@ -148,19 +155,25 @@ export const Textarea = styled.textarea`
   font-family: var(--sans);
   font-size: 0.9rem;
   color: var(--ink);
-  background: var(--bg);
+  background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 2px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.3s;
   resize: vertical;
   min-height: 130px;
   line-height: 1.6;
 
-  &:focus { border-color: var(--accent); }
-  &::placeholder { color: rgba(107, 100, 96, 0.5); }
-  &:disabled { opacity: 0.6; }
-`
+  &:focus {
+    border-color: var(--accent);
+  }
+  &::placeholder {
+    color: rgba(107, 100, 96, 0.5);
+  }
+  &:disabled {
+    opacity: 0.6;
+  }
+`;
 
 export const SendBtn = styled.button`
   display: inline-flex;
@@ -182,7 +195,7 @@ export const SendBtn = styled.button`
   margin-top: 0.5rem;
 
   &:hover:not(:disabled) {
-    background: #A01415;
+    background: #a01415;
     transform: translateY(-2px);
   }
 
@@ -190,16 +203,16 @@ export const SendBtn = styled.button`
     opacity: 0.55;
     cursor: not-allowed;
   }
-`
+`;
 
 export const SuccessMsg = styled.p`
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: #3A7D44;
+  color: #3a7d44;
   text-align: center;
   margin-top: 0.85rem;
   letter-spacing: 0.04em;
-`
+`;
 
 export const ErrorMsg = styled.p`
   font-family: var(--mono);
@@ -208,7 +221,7 @@ export const ErrorMsg = styled.p`
   text-align: center;
   margin-top: 0.85rem;
   letter-spacing: 0.04em;
-`
+`;
 
 export const SocialRow = styled.div`
   display: flex;
@@ -216,7 +229,7 @@ export const SocialRow = styled.div`
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-`
+`;
 
 export const SocialLink = styled.a`
   display: inline-flex;
@@ -237,7 +250,7 @@ export const SocialLink = styled.a`
     border-color: var(--accent);
     transform: translateY(-2px);
   }
-`
+`;
 
 export const FooterNote = styled.div`
   border-top: 1px solid var(--line);
@@ -246,4 +259,4 @@ export const FooterNote = styled.div`
   font-size: 0.7rem;
   color: var(--ink-soft);
   letter-spacing: 0.08em;
-`
+`;

@@ -1,21 +1,21 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from "styled-components";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
-`
+`;
 
 export const pulse = keyframes`
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
-`
+`;
 
 export const Page = styled.div`
   background: var(--bg);
   min-height: 100vh;
   padding-top: 5rem;
   animation: ${fadeUp} 0.4s ease both;
-`
+`;
 
 export const Section = styled.section`
   padding: 4.5rem 3rem;
@@ -25,11 +25,11 @@ export const Section = styled.section`
   @media (max-width: 768px) {
     padding: 3rem 1.5rem;
   }
-`
+`;
 
 export const SectionHeader = styled.div`
   margin-bottom: 3rem;
-`
+`;
 
 export const SectionTag = styled.p`
   font-family: var(--mono);
@@ -43,12 +43,12 @@ export const SectionTag = styled.p`
   margin-bottom: 0.7rem;
 
   &::before {
-    content: '';
+    content: "";
     width: 1.5rem;
     height: 1px;
     background: var(--accent);
   }
-`
+`;
 
 export const H2 = styled.h2`
   font-family: var(--serif);
@@ -60,7 +60,7 @@ export const H2 = styled.h2`
     font-style: italic;
     color: var(--accent);
   }
-`
+`;
 
 export const Grid = styled.div`
   display: grid;
@@ -72,7 +72,7 @@ export const Grid = styled.div`
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-`
+`;
 
 export const AboutText = styled.p`
   font-size: 1rem;
@@ -85,14 +85,14 @@ export const AboutText = styled.p`
     color: var(--ink);
     font-weight: 500;
   }
-`
+`;
 
 export const ButtonRow = styled.div`
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 2rem;
-`
+`;
 
 export const DownloadBtn = styled.a`
   display: inline-flex;
@@ -112,17 +112,17 @@ export const DownloadBtn = styled.a`
   transition: all 0.2s;
 
   &:hover {
-    background: #A01415;
+    background: #a01415;
     transform: translateY(-2px);
   }
-`
+`;
 
 export const TechRow = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
   margin-top: 1.75rem;
-`
+`;
 
 export const TechTag = styled.span`
   font-family: var(--mono);
@@ -131,7 +131,7 @@ export const TechTag = styled.span`
   border: 1px solid var(--line);
   border-radius: 2px;
   color: var(--ink-soft);
-  background: white;
+  background: var(--surface);
   transition: all 0.2s;
   cursor: default;
 
@@ -139,23 +139,24 @@ export const TechTag = styled.span`
     border-color: var(--accent);
     color: var(--accent);
   }
-`
+`;
 
 export const ExpList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-`
+`;
 
 export const ExpItem = styled.div`
   padding-left: 1.4rem;
   border-left: 2px solid var(--line);
+  background: transparent;
   transition: border-color 0.2s;
 
   &:hover {
     border-color: var(--accent);
   }
-`
+`;
 
 export const ExpPeriod = styled.p`
   font-family: var(--mono);
@@ -164,41 +165,41 @@ export const ExpPeriod = styled.p`
   color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 0.25rem;
-`
+`;
 
 export const ExpRole = styled.p`
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--ink);
   margin-bottom: 0.2rem;
-`
+`;
 
 export const ExpCompany = styled.p`
   font-family: var(--mono);
   font-size: 0.78rem;
   color: var(--ink-soft);
   margin-bottom: 0.5rem;
-`
+`;
 
 export const ExpDesc = styled.p`
   font-size: 0.88rem;
   color: var(--ink-soft);
   font-weight: 300;
   line-height: 1.6;
-`
+`;
 
 /* ── ILLUSTRATION SECTION ── */
 
 export const IllustrationSection = styled.section`
   position: relative;
   overflow: hidden;
-  background: #0E0B09;
+  background: #0e0b09;
   padding: 5rem 3rem;
 
   @media (max-width: 768px) {
     padding: 3.5rem 1.5rem;
   }
-`
+`;
 
 /* Background: tiled with non-gallery images */
 export const IllustrationBg = styled.div`
@@ -210,13 +211,13 @@ export const IllustrationBg = styled.div`
   opacity: 0.1;
   pointer-events: none;
   filter: blur(2px) saturate(0.6);
-`
+`;
 
 export const BgImage = styled.div`
   background-image: url(${({ $src }) => $src});
   background-size: cover;
   background-position: center;
-`
+`;
 
 export const IllustrationContent = styled.div`
   position: relative;
@@ -232,28 +233,28 @@ export const IllustrationContent = styled.div`
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-`
+`;
 
-export const IllustrationText = styled.div``
+export const IllustrationText = styled.div``;
 
 export const IlluTag = styled.p`
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #D62828;
+  color: #d62828;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 0.7rem;
 
   &::before {
-    content: '';
+    content: "";
     width: 1.5rem;
     height: 1px;
-    background: #D62828;
+    background: #d62828;
   }
-`
+`;
 
 export const IlluH2 = styled.h2`
   font-family: var(--serif);
@@ -264,9 +265,9 @@ export const IlluH2 = styled.h2`
 
   em {
     font-style: italic;
-    color: #D62828;
+    color: #d62828;
   }
-`
+`;
 
 export const IlluDesc = styled.p`
   font-size: 1rem;
@@ -274,7 +275,7 @@ export const IlluDesc = styled.p`
   font-weight: 300;
   line-height: 1.8;
   margin-bottom: 2rem;
-`
+`;
 
 export const IlluBtn = styled.a`
   display: inline-flex;
@@ -293,11 +294,11 @@ export const IlluBtn = styled.a`
   transition: all 0.2s;
 
   &:hover {
-    border-color: #D62828;
-    color: #D62828;
+    border-color: #d62828;
+    color: #d62828;
     transform: translateY(-2px);
   }
-`
+`;
 
 /*
   Gallery: 3 images
@@ -309,7 +310,7 @@ export const IllustrationGallery = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 0.75rem;
-`
+`;
 
 export const GalleryImgWrap = styled.div`
   border-radius: 3px;
@@ -325,7 +326,7 @@ export const GalleryImgWrap = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.03);
   }
 
   /* Second and third are square */
@@ -349,9 +350,11 @@ export const GalleryImgWrap = styled.div`
     border-color: rgba(214, 40, 40, 0.5);
     transform: scale(1.02);
 
-    img { transform: scale(1.06); }
+    img {
+      transform: scale(1.06);
+    }
   }
-`
+`;
 
 /* ── FOOTER ── */
 
@@ -362,6 +365,7 @@ export const Footer = styled.footer`
   align-items: center;
   border-top: 1px solid var(--line);
   background: var(--bg);
+  transition: background 0.3s;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -369,13 +373,13 @@ export const Footer = styled.footer`
     text-align: center;
     padding: 1.75rem 1.5rem;
   }
-`
+`;
 
 export const FooterCopy = styled.span`
   font-family: var(--mono);
   font-size: 0.7rem;
   color: var(--ink-soft);
-`
+`;
 
 export const FooterDot = styled.div`
   width: 6px;
@@ -383,4 +387,4 @@ export const FooterDot = styled.div`
   border-radius: 50%;
   background: var(--accent);
   animation: ${pulse} 2s infinite;
-`
+`;

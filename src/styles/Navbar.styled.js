@@ -28,6 +28,10 @@ export const Nav = styled.nav`
           background: rgba(245, 242, 237, 0.93);
           border-bottom: 1px solid var(--line);
           backdrop-filter: blur(14px);
+          [data-theme="dark"] & {
+            background: rgba(15, 13, 12, 0.93);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          }
         `}
 
   @media (max-width: 768px) {
@@ -48,7 +52,6 @@ export const Logo = styled.button`
   transition: color 0.2s;
 `;
 
-/* Desktop links */
 export const Links = styled.ul`
   display: flex;
   gap: 2rem;
@@ -98,7 +101,32 @@ export const IconLink = styled.a`
   }
 `;
 
-/* Hamburger button */
+/* ── THEME TOGGLE ── */
+export const ThemeToggle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid
+    ${({ $dark }) => ($dark ? "rgba(255,255,255,0.12)" : "var(--line)")};
+  background: ${({ $dark }) =>
+    $dark ? "rgba(255,255,255,0.06)" : "var(--surface-soft)"};
+  color: ${({ $dark }) =>
+    $dark ? "rgba(245,240,234,0.6)" : "var(--ink-soft)"};
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: rotate(20deg);
+  }
+`;
+
+/* ── HAMBURGER ── */
 export const HamburgerBtn = styled.button`
   display: none;
   flex-direction: column;
@@ -124,7 +152,7 @@ export const HamburgerBtn = styled.button`
     border-radius: 2px;
     background: ${({ $dark }) =>
       $dark ? "rgba(245,240,234,0.85)" : "var(--ink)"};
-    transition: transform 0.3s, opacity 0.3s, background 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
     transform-origin: center;
   }
 
@@ -140,7 +168,7 @@ export const HamburgerBtn = styled.button`
   }
 `;
 
-/* Mobile drawer */
+/* ── MOBILE MENU ── */
 export const MobileMenu = styled.div`
   display: none;
 
@@ -157,10 +185,10 @@ export const MobileMenu = styled.div`
     gap: 0.5rem;
     animation: ${fadeDown} 0.25s ease both;
 
-    ${({ $dark }) =>
-      $dark
+    ${({ $themeDark }) =>
+      $themeDark
         ? css`
-            background: rgba(10, 8, 7, 0.97);
+            background: rgba(10, 8, 7, 0.98);
             backdrop-filter: blur(20px);
           `
         : css`
@@ -180,34 +208,59 @@ export const MobileNavBtn = styled.button`
   cursor: pointer;
   padding: 1rem 0;
   text-align: left;
-  border-bottom: 1px solid
-    ${({ $dark }) => ($dark ? "rgba(255,255,255,0.07)" : "var(--line)")};
+  border-bottom: 1px solid var(--line);
   transition: color 0.2s;
-  color: ${({ $dark }) =>
-    $dark ? "rgba(245, 240, 234, 0.6)" : "var(--ink-soft)"};
+  color: var(--ink-soft);
   width: 100%;
 
   &:hover {
-    color: ${({ $dark }) => ($dark ? "white" : "var(--ink)")};
+    color: var(--ink);
   }
+`;
+
+export const MobileBottom = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
 `;
 
 export const MobileSocials = styled.div`
   display: flex;
   gap: 1.25rem;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
 `;
 
 export const MobileIconLink = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${({ $dark }) =>
-    $dark ? "rgba(245, 240, 234, 0.4)" : "var(--ink-soft)"};
+  color: var(--ink-soft);
   transition: color 0.2s;
 
   &:hover {
     color: #d62828;
+  }
+`;
+
+export const MobileThemeToggle = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 `;
