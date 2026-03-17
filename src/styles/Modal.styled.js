@@ -7,7 +7,7 @@ export const Overlay = styled.div`
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: rgba(10, 8, 7, 0.92);
+  background: rgba(10, 8, 7, 0.85);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   overflow-y: auto;
@@ -15,8 +15,6 @@ export const Overlay = styled.div`
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   pointer-events: ${({ $open }) => ($open ? "all" : "none")};
   transition: opacity 0.3s;
-
-  /* Mobile: scroll vertical, modal no topo com padding */
   display: block;
   padding: 5rem 1rem 3rem;
 
@@ -29,15 +27,15 @@ export const Overlay = styled.div`
 `;
 
 export const Box = styled.div`
-  background: #1e1a17;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 6px;
   width: 100%;
   max-width: 580px;
   margin: 0 auto;
   transform: ${({ $open }) =>
     $open ? "translateY(0) scale(1)" : "translateY(24px) scale(0.97)"};
-  transition: transform 0.3s;
+  transition: transform 0.3s, background 0.3s;
 
   @media (min-width: 769px) {
     max-height: 88vh;
@@ -47,7 +45,7 @@ export const Box = styled.div`
 
 export const Header = styled.div`
   padding: 1.75rem 1.75rem 1.1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -57,7 +55,7 @@ export const Header = styled.div`
 export const Num = styled.p`
   font-family: var(--mono);
   font-size: 0.66rem;
-  color: #d62828;
+  color: var(--accent);
   letter-spacing: 0.15em;
   margin-bottom: 0.45rem;
 `;
@@ -65,32 +63,31 @@ export const Num = styled.p`
 export const Title = styled.h2`
   font-family: var(--serif);
   font-size: 1.5rem;
-  color: white;
+  color: var(--ink);
   line-height: 1.15;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 `;
 
 export const CloseBtn = styled.button`
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ink-soft);
   flex-shrink: 0;
   transition: all 0.2s;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
+    border-color: var(--accent);
+    color: var(--accent);
   }
 `;
 
@@ -104,7 +101,7 @@ export const Body = styled.div`
 
 export const Desc = styled.p`
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ink-soft);
   font-weight: 300;
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -115,7 +112,8 @@ export const StackLabel = styled.p`
   font-size: 0.66rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--ink-soft);
+  opacity: 0.6;
   margin-bottom: 0.65rem;
 `;
 
@@ -129,9 +127,10 @@ export const StackTag = styled.span`
   font-family: var(--mono);
   font-size: 0.7rem;
   padding: 0.28rem 0.7rem;
-  border: 1px solid rgba(200, 25, 26, 0.35);
+  border: 1px solid var(--accent);
   border-radius: 2px;
-  color: #d62828;
+  color: var(--accent);
+  opacity: 0.7;
 `;
 
 export const Footer = styled.div`
@@ -139,6 +138,7 @@ export const Footer = styled.div`
   display: flex;
   gap: 0.65rem;
   flex-wrap: wrap;
+  border-top: 1px solid var(--line);
 
   @media (max-width: 768px) {
     padding: 1rem 1.25rem 1.5rem;
@@ -160,21 +160,22 @@ export const LinkBtn = styled.a`
   ${({ $ghost }) =>
     $ghost
       ? `
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.6);
-    &:hover { border-color: rgba(255,255,255,0.35); color: white; transform: translateY(-2px); }
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    &:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
   `
       : `
     background: var(--accent);
     color: white;
-    &:hover { background: #A01415; transform: translateY(-2px); }
+    &:hover { opacity: 0.85; transform: translateY(-2px); }
   `}
 `;
 
 export const NoLink = styled.span`
   font-family: var(--mono);
   font-size: 0.73rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--ink-soft);
+  opacity: 0.5;
   display: flex;
   align-items: center;
   gap: 0.4rem;
