@@ -1,29 +1,65 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import {
-  Overlay, Box, Header, Num, Title, CloseBtn,
-  Body, Desc, StackLabel, StackRow, StackTag,
-  Footer, LinkBtn, NoLink,
-} from '../styles/Modal.styled'
-import { CloseIcon, ExternalIcon, GitHubIcon, LockIcon } from './Icons'
+  Overlay,
+  Box,
+  Header,
+  Num,
+  Title,
+  CloseBtn,
+  Body,
+  Desc,
+  StackLabel,
+  StackRow,
+  StackTag,
+  Footer,
+  LinkBtn,
+  NoLink,
+} from "../styles/Modal.styled";
+import { CloseIcon, ExternalIcon, GitHubIcon, LockIcon } from "./Icons";
 
 export default function Modal({ project, onClose }) {
-  const open = !!project
+  const open = !!project;
+  const overlayRef = useRef(null);
 
+  // Fecha com ESC
   useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', handler)
-    return () => document.removeEventListener('keydown', handler)
-  }, [onClose])
+    const handler = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [onClose]);
 
+  // Bloqueia scroll do body e rola overlay pro topo
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      // Aguarda o próximo frame para garantir que o overlay já renderizou
+      requestAnimationFrame(() => {
+        if (overlayRef.current) overlayRef.current.scrollTop = 0;
+      });
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [open]);
 
-  const handleOverlay = (e) => { if (e.target === e.currentTarget) onClose() }
+  // Clique no fundo fecha o modal
+  const handleOverlay = (e) => {
+    if (e.target === overlayRef.current) onClose();
+  };
 
-  return (
-    <Overlay $open={open} onClick={handleOverlay}>
+  const content = (
+    <Overlay $open={open} onClick={handleOverlay} ref={overlayRef}>
       <Box $open={open}>
         {project && (
           <>
@@ -32,14 +68,18 @@ export default function Modal({ project, onClose }) {
                 <Num>{project.num}</Num>
                 <Title>{project.title}</Title>
               </div>
-              <CloseBtn onClick={onClose}><CloseIcon /></CloseBtn>
+              <CloseBtn onClick={onClose}>
+                <CloseIcon />
+              </CloseBtn>
             </Header>
 
             <Body>
               <Desc>{project.desc}</Desc>
               <StackLabel>tecnologias</StackLabel>
               <StackRow>
-                {project.stack.map((t) => <StackTag key={t}>{t}</StackTag>)}
+                {project.stack.map((t) => (
+                  <StackTag key={t}>{t}</StackTag>
+                ))}
               </StackRow>
             </Body>
 
@@ -50,17 +90,26 @@ export default function Modal({ project, onClose }) {
                 </LinkBtn>
               )}
               {project.github && (
-                <LinkBtn href={project.github} target="_blank" rel="noreferrer" $ghost>
+                <LinkBtn
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  $ghost
+                >
                   <GitHubIcon /> GitHub
                 </LinkBtn>
               )}
               {!project.link && !project.github && (
-                <NoLink><LockIcon /> projeto interno — link não disponível</NoLink>
+                <NoLink>
+                  <LockIcon /> projeto interno — link não disponível
+                </NoLink>
               )}
             </Footer>
           </>
         )}
       </Box>
     </Overlay>
-  )
+  );
+
+  return ReactDOM.createPortal(content, document.body);
 }
