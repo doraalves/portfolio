@@ -23,13 +23,18 @@ export default function Modal({ project, onClose }) {
 
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [iframeError,  setIframeError]  = useState(false);
+  const [iframeReady,  setIframeReady]  = useState(false);
   const [scale,        setScale]        = useState(0.3);
 
-  // Resetar ao trocar de projeto
+  // Resetar ao trocar de projeto e aguardar animação antes de carregar iframe
   useEffect(() => {
     setIframeLoaded(false);
     setIframeError(false);
-  }, [project?.num]);
+    setIframeReady(false);
+    if (!project?.link) return;
+    const t = setTimeout(() => setIframeReady(true), 300);
+    return () => clearTimeout(t);
+  }, [project?.num, project?.link]);
 
   // Calcular escala real com base na largura do container
   useLayoutEffect(() => {
@@ -123,9 +128,8 @@ export default function Modal({ project, onClose }) {
                         {!iframeError ? (
                           <>
                             <iframe
-                              src={project.link}
+                              src={iframeReady ? project.link : undefined}
                               sandbox="allow-scripts allow-same-origin"
-                              loading="lazy"
                               title={`Preview: ${project.title}`}
                               onLoad={() => setIframeLoaded(true)}
                               onError={() => setIframeError(true)}

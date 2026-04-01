@@ -1,3 +1,8 @@
+import img001 from "../assets/screenshots/001.jpg";
+import img002 from "../assets/screenshots/002.jpg";
+import img003 from "../assets/screenshots/003.jpg";
+import img004 from "../assets/screenshots/004.jpg";
+
 const projects = [
   {
     num: "001",
@@ -8,6 +13,7 @@ const projects = [
     stack: ["JavaScript", "HTML", "CSS"],
     link: "https://doraalves.github.io/calculadora/",
     github: "https://github.com/doraalves/calculadora",
+    thumb: img001,
   },
   {
     num: "002",
@@ -18,6 +24,7 @@ const projects = [
     stack: ["JavaScript", "HTML", "CSS"],
     link: "https://doraalves.github.io/baloes/",
     github: "https://github.com/doraalves/baloes",
+    thumb: img002,
   },
   {
     num: "003",
@@ -28,6 +35,7 @@ const projects = [
     stack: ["JavaScript", "HTML", "CSS"],
     link: "https://doraalves.github.io/cronometro/",
     github: "https://github.com/doraalves/cronometro",
+    thumb: img003,
   },
   {
     num: "004",
@@ -38,6 +46,7 @@ const projects = [
     stack: ["D3.js", "JavaScript", "HTML", "SCSS"],
     link: "https://blackvisesdi.github.io/BlackVis/",
     github: "https://github.com/blackvisesdi/BlackVis",
+    thumb: img004,
   },
   {
     num: "005",

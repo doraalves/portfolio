@@ -31,20 +31,20 @@ import imgGlei     from "../assets/illustrations/p.gleiInsta.jpg";
 import imgRafael   from "../assets/illustrations/p_rafael.jpg";
 import imgWA       from "../assets/illustrations/post-instaWA.jpg";
 import imgPlaylist from "../assets/illustrations/p-v-a4-musica-playlist.jpg";
-import imgDemi     from "../assets/illustrations/demi-rockinrio.png";
-import imgLuane    from "../assets/illustrations/Luane__1_.png";
+import imgDemi     from "../assets/illustrations/demi-rockinrio.jpg";
+import imgLuane    from "../assets/illustrations/Luane__1_.jpg";
 import curriculo from "../assets/docs/curriculo-izadora.pdf";
 import tccPdf    from "../assets/docs/tcc-izadora.pdf";
 
-import tccFig40 from "../assets/tcc/tcc_p54_0.jpeg";
+import tccFig40 from "../assets/tcc/tcc_p54_0.jpg";
 import tccFig43 from "../assets/tcc/tcc_p58_0.png";
 import tccFig44 from "../assets/tcc/tcc_p59_0.png";
-import tccFig46 from "../assets/tcc/tcc_p60_0.jpeg";
-import tccFig49 from "../assets/tcc/tcc_p61_1.jpeg";
+import tccFig46 from "../assets/tcc/tcc_p60_0.jpg";
+import tccFig49 from "../assets/tcc/tcc_p61_1.jpg";
 import tccFig51 from "../assets/tcc/fig51_sprite_correndo.png";
-import tccFig56 from "../assets/tcc/tcc_p65_0.jpeg";
-import tccFig58 from "../assets/tcc/tcc_p66_1.jpeg";
-import tccFig59 from "../assets/tcc/tcc_p67_0.jpeg";
+import tccFig56 from "../assets/tcc/tcc_p65_0.jpg";
+import tccFig58 from "../assets/tcc/tcc_p66_1.jpg";
+import tccFig59 from "../assets/tcc/tcc_p67_0.jpg";
 
 const tccScreenshots = [
   { src: tccFig46, alt: "Figura 46 · tela de menu"            },
@@ -261,7 +261,7 @@ export default function About() {
 
           <CarouselWrap>
             <CarouselSlide onClick={() => setLightbox(idx)}>
-              <img key={idx} src={current.src} alt={current.alt} />
+              <img key={idx} src={current.src} alt={current.alt} loading="lazy" />
             </CarouselSlide>
 
             <CarouselArrow $side="left"  onClick={prev}>‹</CarouselArrow>
@@ -344,7 +344,7 @@ export default function About() {
 
           <TccGrid>
             {tccScreenshots.map((img, i) => (
-              <TccGridImg key={i} src={img.src} alt={img.alt} />
+              <TccGridImg key={i} src={img.src} alt={img.alt} loading="lazy" />
             ))}
           </TccGrid>
         </TccInner>

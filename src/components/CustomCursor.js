@@ -22,15 +22,13 @@ export default function CustomCursor() {
         dotRef.current.style.transform =
           `translate(${e.clientX}px, ${e.clientY}px)`;
       }
+      if (ringRef.current) {
+        ringRef.current.style.transform =
+          `translate(${e.clientX}px, ${e.clientY}px)`;
+      }
     };
 
     const animate = () => {
-      ring.current.x = lerp(ring.current.x, mouse.current.x, 0.22);
-      ring.current.y = lerp(ring.current.y, mouse.current.y, 0.22);
-      if (ringRef.current) {
-        ringRef.current.style.transform =
-          `translate(${ring.current.x}px, ${ring.current.y}px)`;
-      }
       rafId.current = requestAnimationFrame(animate);
     };
 

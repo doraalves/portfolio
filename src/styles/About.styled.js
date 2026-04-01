@@ -594,7 +594,6 @@ export const TccInner = styled.div`
 `;
 
 export const TccHeader = styled.div`
-  max-width: 660px;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
