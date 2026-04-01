@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 import GlobalStyle from "./styles/GlobalStyle";
 import Navbar from "./components/Navbar";
+import CustomCursor from "./components/CustomCursor";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <GlobalStyle />
+      <CustomCursor />
       <Navbar page={page} onNavigate={navigate} />
       {page === "home" && <Home onNavigate={navigate} />}
       {page === "about" && <About />}

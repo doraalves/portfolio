@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const shimmer = keyframes`
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+`;
 
 export const Overlay = styled.div`
   position: fixed;
@@ -7,44 +12,45 @@ export const Overlay = styled.div`
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: rgba(10, 8, 7, 0.85);
+  background: rgba(10, 8, 7, 0.88);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   pointer-events: ${({ $open }) => ($open ? "all" : "none")};
   transition: opacity 0.3s;
-  display: block;
-  padding: 5rem 1rem 3rem;
 
-  @media (min-width: 769px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
+  @media (max-width: 768px) {
+    align-items: flex-end;
+    padding: 0;
   }
 `;
 
 export const Box = styled.div`
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 8px;
   width: 100%;
-  max-width: 580px;
-  margin: 0 auto;
+  max-width: ${({ $wide }) => ($wide ? "940px" : "580px")};
   transform: ${({ $open }) =>
     $open ? "translateY(0) scale(1)" : "translateY(24px) scale(0.97)"};
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s, max-width 0.3s;
+  overflow: hidden;
 
-  @media (min-width: 769px) {
-    max-height: 88vh;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+    max-height: 92vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 `;
 
 export const Header = styled.div`
-  padding: 1.75rem 1.75rem 1.1rem;
+  padding: 1.5rem 1.75rem 1.1rem;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
@@ -57,17 +63,17 @@ export const Num = styled.p`
   font-size: 0.66rem;
   color: var(--accent);
   letter-spacing: 0.15em;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
 `;
 
 export const Title = styled.h2`
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   color: var(--ink);
   line-height: 1.15;
 
   @media (max-width: 768px) {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -91,16 +97,31 @@ export const CloseBtn = styled.button`
   }
 `;
 
-export const Body = styled.div`
-  padding: 1.5rem 1.75rem;
+/* ── Layout principal do modal ── */
+
+export const MainContent = styled.div`
+  display: grid;
+  grid-template-columns: ${({ $hasPreview }) => ($hasPreview ? "1fr 1.1fr" : "1fr")};
+  gap: 0;
 
   @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const InfoPanel = styled.div`
+  padding: 1.5rem 1.75rem;
+  border-right: ${({ $hasPreview }) => ($hasPreview ? "1px solid var(--line)" : "none")};
+
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
     padding: 1.25rem;
   }
 `;
 
 export const Desc = styled.p`
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--ink-soft);
   font-weight: 300;
   line-height: 1.8;
@@ -109,12 +130,12 @@ export const Desc = styled.p`
 
 export const StackLabel = styled.p`
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  opacity: 0.6;
-  margin-bottom: 0.65rem;
+  opacity: 0.55;
+  margin-bottom: 0.6rem;
 `;
 
 export const StackRow = styled.div`
@@ -125,16 +146,152 @@ export const StackRow = styled.div`
 
 export const StackTag = styled.span`
   font-family: var(--mono);
-  font-size: 0.7rem;
-  padding: 0.28rem 0.7rem;
+  font-size: 0.68rem;
+  padding: 0.26rem 0.65rem;
   border: 1px solid var(--accent);
   border-radius: 2px;
   color: var(--accent);
   opacity: 0.7;
 `;
 
+/* ── Preview: monitor mockup ── */
+
+export const PreviewPanel = styled.div`
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-soft);
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    order: -1;
+  }
+`;
+
+export const MonitorWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
+export const MonitorScreen = styled.div`
+  width: 100%;
+  background: #0e0b09;
+  border: 2px solid var(--line);
+  border-radius: 8px 8px 4px 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+`;
+
+export const MonitorBar = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #1a1714;
+  border-bottom: 1px solid #2a2522;
+`;
+
+export const MonitorDots = styled.div`
+  display: flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+
+  span {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  span:nth-child(1) { background: #ff5f57; }
+  span:nth-child(2) { background: #febc2e; }
+  span:nth-child(3) { background: #28c840; }
+`;
+
+export const MonitorAddress = styled.span`
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: rgba(245, 240, 234, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+`;
+
+export const MonitorDisplay = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* height é definido por inline style no componente (calculado pela escala) */
+`;
+
+export const MonitorNeck = styled.div`
+  width: 32px;
+  height: 20px;
+  background: var(--line);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+`;
+
+export const MonitorBase = styled.div`
+  width: 80px;
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+`;
+
+export const PreviewSkeleton = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #1a1714 25%,
+    #2a2522 50%,
+    #1a1714 75%
+  );
+  background-size: 800px 100%;
+  animation: ${shimmer} 1.4s infinite linear;
+`;
+
+export const IframeFallback = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.75rem;
+  background: #1a1714;
+`;
+
+export const FallbackLink = styled.a`
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--accent);
+    color: white;
+  }
+`;
+
+export const FallbackText = styled.p`
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: rgba(245, 240, 234, 0.3);
+`;
+
+/* ── Footer ── */
+
 export const Footer = styled.div`
-  padding: 1.1rem 1.75rem 1.75rem;
+  padding: 1rem 1.75rem 1.5rem;
   display: flex;
   gap: 0.65rem;
   flex-wrap: wrap;
@@ -149,7 +306,7 @@ export const LinkBtn = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.7rem 1.4rem;
+  padding: 0.65rem 1.3rem;
   font-family: var(--mono);
   font-size: 0.75rem;
   text-decoration: none;

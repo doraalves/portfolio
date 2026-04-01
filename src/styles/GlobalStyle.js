@@ -29,9 +29,6 @@ const GlobalStyle = createGlobalStyle`
     --line:         #2A2522;
     --surface:      #1A1714;
     --surface-soft: #221F1C;
-    --mono: 'DM Mono', monospace;
-    --serif: 'DM Serif Display', serif;
-    --sans: 'DM Sans', sans-serif;
   }
 
   html, body { height: 100%; }
@@ -45,6 +42,23 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     transition: background 0.3s, color 0.3s;
   }
+
+  /* ── Cursor personalizado (apenas mouse) ── */
+  @media (pointer: fine) {
+    *, *::before, *::after { cursor: none !important; }
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 1px; height: 1px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 1px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #a01415; }
+
+  /* Firefox */
+  * { scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
 `;
 
 export default GlobalStyle;

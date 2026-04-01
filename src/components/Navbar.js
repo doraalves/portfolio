@@ -80,17 +80,17 @@ export default function Navbar({ page, onNavigate }) {
         {/* Desktop links — esconde no mobile */}
         <Links>
           <li>
-            <NavBtn $dark={navDark} onClick={() => navigate("about")}>
+            <NavBtn $dark={navDark} $active={page === "about"} onClick={() => navigate("about")}>
               sobre
             </NavBtn>
           </li>
           <li>
-            <NavBtn $dark={navDark} onClick={() => navigate("projects")}>
+            <NavBtn $dark={navDark} $active={page === "projects"} onClick={() => navigate("projects")}>
               projetos
             </NavBtn>
           </li>
           <li>
-            <NavBtn $dark={navDark} onClick={() => navigate("contact")}>
+            <NavBtn $dark={navDark} $active={page === "contact"} onClick={() => navigate("contact")}>
               contato
             </NavBtn>
           </li>
@@ -153,12 +153,10 @@ export default function Navbar({ page, onNavigate }) {
 
       {/* Menu mobile */}
       <MobileMenu $open={menuOpen} $themeDark={themeDark}>
-        <MobileNavBtn onClick={() => navigate("home")}>início</MobileNavBtn>
-        <MobileNavBtn onClick={() => navigate("about")}>sobre</MobileNavBtn>
-        <MobileNavBtn onClick={() => navigate("projects")}>
-          projetos
-        </MobileNavBtn>
-        <MobileNavBtn onClick={() => navigate("contact")}>contato</MobileNavBtn>
+        <MobileNavBtn $active={page === "home"}     onClick={() => navigate("home")}>início</MobileNavBtn>
+        <MobileNavBtn $active={page === "about"}    onClick={() => navigate("about")}>sobre</MobileNavBtn>
+        <MobileNavBtn $active={page === "projects"} onClick={() => navigate("projects")}>projetos</MobileNavBtn>
+        <MobileNavBtn $active={page === "contact"}  onClick={() => navigate("contact")}>contato</MobileNavBtn>
         <MobileBottom>
           <MobileSocials>
             <MobileIconLink

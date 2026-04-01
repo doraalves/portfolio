@@ -10,6 +10,21 @@ const pulse = keyframes`
   50% { opacity: 0.5; transform: scale(0.8); }
 `;
 
+const roleIn = keyframes`
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+const roleOut = keyframes`
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-10px); }
+`;
+
+const tickerUp = keyframes`
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+`;
+
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
@@ -18,10 +33,8 @@ export const Wrapper = styled.div`
   overflow: hidden;
   transition: background 0.3s;
 
-  /* Light: fundo claro quente */
   background: #f0ebe3;
 
-  /* Dark: fundo escuro */
   [data-theme="dark"] & {
     background: #0e0b09;
   }
@@ -58,6 +71,7 @@ export const Tag = styled.p`
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
+  min-height: 1.2em;
 
   &::before,
   &::after {
@@ -65,7 +79,13 @@ export const Tag = styled.p`
     width: 2rem;
     height: 1px;
     background: var(--accent);
+    flex-shrink: 0;
   }
+`;
+
+export const RoleText = styled.span`
+  display: inline-block;
+  animation: ${({ $exiting }) => ($exiting ? roleOut : roleIn)} 0.35s ease both;
 `;
 
 export const Title = styled.h1`
@@ -119,11 +139,12 @@ export const BtnPrimary = styled.button`
   border: none;
   background: var(--accent);
   color: white;
-  transition: all 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  will-change: transform;
 
   &:hover {
     background: #a01415;
-    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 25, 26, 0.3);
   }
 `;
 
@@ -141,11 +162,11 @@ export const BtnOutline = styled.button`
   background: transparent;
   color: var(--ink);
   border: 1.5px solid var(--line);
-  transition: all 0.2s;
+  transition: border-color 0.2s, color 0.2s;
+  will-change: transform;
 
   &:hover {
     border-color: var(--ink);
-    transform: translateY(-2px);
   }
 
   [data-theme="dark"] & {
@@ -156,6 +177,48 @@ export const BtnOutline = styled.button`
       border-color: rgba(245, 240, 234, 0.6);
       color: white;
     }
+  }
+`;
+
+/* ── Vertical ticker lateral ── */
+
+export const VerticalTicker = styled.div`
+  position: absolute;
+  right: 2rem;
+  top: 12%;
+  bottom: 12%;
+  width: 16px;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+`;
+
+export const VerticalTrack = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: ${tickerUp} 32s linear infinite;
+`;
+
+export const VerticalItem = styled.span`
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.18;
+  padding: 1rem 0;
+  white-space: nowrap;
+
+  [data-theme="dark"] & {
+    color: rgba(245, 240, 234, 0.12);
+    opacity: 1;
   }
 `;
 

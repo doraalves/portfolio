@@ -71,13 +71,33 @@ export const NavBtn = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0 0 2px;
   transition: color 0.2s;
-  color: ${({ $dark }) =>
-    $dark ? "rgba(245, 240, 234, 0.5)" : "var(--ink-soft)"};
+  position: relative;
+
+  color: ${({ $dark, $active }) => {
+    if ($active) return "var(--accent)";
+    if ($dark)   return "rgba(245, 240, 234, 0.5)";
+    return "var(--ink-soft)";
+  }};
+
+  /* Linha indicadora embaixo */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transform: scaleX(${({ $active }) => ($active ? 1 : 0)});
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
 
   &:hover {
-    color: ${({ $dark }) => ($dark ? "#D62828" : "var(--accent)")};
+    color: var(--accent);
+    &::after { transform: scaleX(1); }
   }
 `;
 
@@ -210,11 +230,11 @@ export const MobileNavBtn = styled.button`
   text-align: left;
   border-bottom: 1px solid var(--line);
   transition: color 0.2s;
-  color: var(--ink-soft);
+  color: ${({ $active }) => ($active ? "var(--accent)" : "var(--ink-soft)")};
   width: 100%;
 
   &:hover {
-    color: var(--ink);
+    color: var(--accent);
   }
 `;
 

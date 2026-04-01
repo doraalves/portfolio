@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   Page, Section, SectionHeader, SectionTag, H2,
   Grid, Card, CardNum, CardTitle, CardDesc,
-  StackRow, StackTag, Hint,
+  StackRow, StackTag, Hint, InternalBadge,
   Footer, FooterCopy, FooterDot,
 } from '../styles/Projects.styled'
 import Modal from '../components/Modal'
@@ -23,7 +23,7 @@ export default function Projects() {
         </SectionHeader>
         <Grid>
           {projects.map((p) => (
-            <Card key={p.num} onClick={() => setSelected(p)}>
+            <Card key={p.num} onClick={() => setSelected(p)} $internal={!p.link && !p.github}>
               <CardNum>{p.num}</CardNum>
               <CardTitle>{p.title}</CardTitle>
               <CardDesc>{p.shortDesc}</CardDesc>
@@ -32,7 +32,11 @@ export default function Projects() {
                   <StackTag key={t}>{t}</StackTag>
                 ))}
               </StackRow>
-              <Hint>↗ ver detalhes</Hint>
+              {p.link || p.github ? (
+                <Hint>↗ ver detalhes e preview</Hint>
+              ) : (
+                <InternalBadge>🔒 projeto interno</InternalBadge>
+              )}
             </Card>
           ))}
         </Grid>

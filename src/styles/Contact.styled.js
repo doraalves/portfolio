@@ -1,25 +1,26 @@
-import styled, { keyframes } from "styled-components";
-
-const fadeUp = keyframes`
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-`;
+import styled from "styled-components";
+import { fadeUp } from "./shared";
 
 export const Page = styled.div`
   background: var(--bg);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 1.5rem 3rem;
+  padding-top: 5rem;
   animation: ${fadeUp} 0.4s ease both;
+  transition: background 0.3s;
 `;
 
 export const Inner = styled.div`
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4.5rem 3rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+`;
+
+export const PageHeader = styled.div`
+  margin-bottom: 3rem;
 `;
 
 export const SectionTag = styled.p`
@@ -30,7 +31,6 @@ export const SectionTag = styled.p`
   color: var(--accent);
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.6rem;
   margin-bottom: 0.7rem;
 
@@ -47,7 +47,6 @@ export const H2 = styled.h2`
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   line-height: 1.1;
   color: var(--ink);
-  margin-bottom: 1.25rem;
 
   em {
     font-style: italic;
@@ -55,21 +54,56 @@ export const H2 = styled.h2`
   }
 `;
 
-export const SubText = styled.p`
+/* ── Layout duas colunas ── */
+
+export const TwoCol = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+`;
+
+export const ContactInfo = styled.div``;
+
+export const InfoText = styled.p`
   font-size: 1rem;
   color: var(--ink-soft);
   font-weight: 300;
-  max-width: 44ch;
-  margin: 0 auto 2.5rem;
   line-height: 1.8;
+  margin-bottom: 2rem;
 `;
 
-export const DirectLinks = styled.div`
+export const AvailLabel = styled.p`
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.55;
+  margin-bottom: 0.75rem;
+`;
+
+export const AvailChips = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 0.75rem;
   flex-wrap: wrap;
+  gap: 0.5rem;
   margin-bottom: 2rem;
+`;
+
+export const Chip = styled.span`
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink-soft);
+  background: var(--surface);
 `;
 
 export const DirectLink = styled.a`
@@ -85,6 +119,7 @@ export const DirectLink = styled.a`
   border: 1px solid var(--line);
   border-radius: 2px;
   transition: all 0.2s;
+  margin-bottom: 2.5rem;
 
   &:hover {
     color: var(--accent);
@@ -93,13 +128,40 @@ export const DirectLink = styled.a`
   }
 `;
 
+export const SocialRow = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+`;
+
+export const SocialLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+`;
+
+/* ── Form ── */
+
 export const FormCard = styled.div`
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 2rem;
-  text-align: left;
-  margin-bottom: 2rem;
   transition: background 0.3s, border-color 0.3s;
 `;
 
@@ -109,7 +171,8 @@ export const FormTitle = styled.p`
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  margin-bottom: 1.25rem;
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
 `;
 
 export const FormGroup = styled.div`
@@ -138,15 +201,9 @@ export const Input = styled.input`
   outline: none;
   transition: border-color 0.2s, background 0.3s;
 
-  &:focus {
-    border-color: var(--accent);
-  }
-  &::placeholder {
-    color: rgba(107, 100, 96, 0.5);
-  }
-  &:disabled {
-    opacity: 0.6;
-  }
+  &:focus { border-color: var(--accent); }
+  &::placeholder { color: rgba(107, 100, 96, 0.5); }
+  &:disabled { opacity: 0.6; }
 `;
 
 export const Textarea = styled.textarea`
@@ -161,18 +218,12 @@ export const Textarea = styled.textarea`
   outline: none;
   transition: border-color 0.2s, background 0.3s;
   resize: vertical;
-  min-height: 130px;
+  min-height: 120px;
   line-height: 1.6;
 
-  &:focus {
-    border-color: var(--accent);
-  }
-  &::placeholder {
-    color: rgba(107, 100, 96, 0.5);
-  }
-  &:disabled {
-    opacity: 0.6;
-  }
+  &:focus { border-color: var(--accent); }
+  &::placeholder { color: rgba(107, 100, 96, 0.5); }
+  &:disabled { opacity: 0.6; }
 `;
 
 export const SendBtn = styled.button`
@@ -223,37 +274,9 @@ export const ErrorMsg = styled.p`
   letter-spacing: 0.04em;
 `;
 
-export const SocialRow = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-`;
-
-export const SocialLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
-  text-decoration: none;
-  padding: 0.7rem 1.25rem;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  transition: all 0.2s;
-
-  &:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-`;
-
 export const FooterNote = styled.div`
   border-top: 1px solid var(--line);
+  margin-top: 3rem;
   padding-top: 1.75rem;
   font-family: var(--mono);
   font-size: 0.7rem;
