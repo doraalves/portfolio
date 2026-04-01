@@ -1,29 +1,31 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.aeccde1d.js",
+    "main.js": "/portfolio/static/js/main.c3334ba4.js",
     "static/media/tcc-izadora.pdf": "/portfolio/static/media/tcc-izadora.4d4b8ffd76a7a9e501aa.pdf",
-    "static/media/p.gleiInsta.jpg": "/portfolio/static/media/p.gleiInsta.99b7321615f3070fbbfc.jpg",
-    "static/media/demi-rockinrio.png": "/portfolio/static/media/demi-rockinrio.37975ed716d8c7b13221.png",
-    "static/media/billieInsta.jpg": "/portfolio/static/media/billieInsta.11f0210dc78db5b1b1d3.jpg",
-    "static/media/post-instaWA.jpg": "/portfolio/static/media/post-instaWA.063d10a421917257e0de.jpg",
-    "static/media/rihannaInsta.jpg": "/portfolio/static/media/rihannaInsta.a02b0ea0d3c204dd702e.jpg",
-    "static/media/p_rafael.jpg": "/portfolio/static/media/p_rafael.6143b0601933634d01a5.jpg",
-    "static/media/Luane__1_.png": "/portfolio/static/media/Luane__1_.08a96fce49193b56d813.png",
-    "static/media/Brunao2.jpg": "/portfolio/static/media/Brunao2.fa48479d06adba9c71f8.jpg",
-    "static/media/p-v-a4-musica-playlist.jpg": "/portfolio/static/media/p-v-a4-musica-playlist.cc9e225974c56d0a8c97.jpg",
+    "static/media/demi-rockinrio.jpg": "/portfolio/static/media/demi-rockinrio.0b3dae0edd5c31d7e10e.jpg",
+    "static/media/Luane__1_.jpg": "/portfolio/static/media/Luane__1_.9091ea162207649c8f36.jpg",
+    "static/media/billieInsta.jpg": "/portfolio/static/media/billieInsta.ac5cc50eac82e75e9d2c.jpg",
+    "static/media/rihannaInsta.jpg": "/portfolio/static/media/rihannaInsta.4232135dd0a97d01d019.jpg",
     "static/media/curriculo-izadora.pdf": "/portfolio/static/media/curriculo-izadora.47e7e5330fa53f188fac.pdf",
-    "static/media/tcc_p61_1.jpeg": "/portfolio/static/media/tcc_p61_1.bc6dae02a7e6ca1a0d51.jpeg",
-    "static/media/tcc_p60_0.jpeg": "/portfolio/static/media/tcc_p60_0.9018702eed140815b982.jpeg",
-    "static/media/tcc_p67_0.jpeg": "/portfolio/static/media/tcc_p67_0.168e1934da37a6fad49b.jpeg",
-    "static/media/tcc_p54_0.jpeg": "/portfolio/static/media/tcc_p54_0.6dff87cf0379ae713600.jpeg",
-    "static/media/tcc_p66_1.jpeg": "/portfolio/static/media/tcc_p66_1.d5fc45876715ed5d6f61.jpeg",
-    "static/media/tcc_p65_0.jpeg": "/portfolio/static/media/tcc_p65_0.bb405a194b9e8ead0213.jpeg",
+    "static/media/p_rafael.jpg": "/portfolio/static/media/p_rafael.40a3d2165d63e0b893ac.jpg",
+    "static/media/post-instaWA.jpg": "/portfolio/static/media/post-instaWA.72c02c4cbebef6d89417.jpg",
+    "static/media/p.gleiInsta.jpg": "/portfolio/static/media/p.gleiInsta.5e2ea481ce8b524edb42.jpg",
+    "static/media/tcc_p61_1.jpg": "/portfolio/static/media/tcc_p61_1.98e195d94f9857a06ed2.jpg",
+    "static/media/p-v-a4-musica-playlist.jpg": "/portfolio/static/media/p-v-a4-musica-playlist.1abf758454c2041c72f6.jpg",
+    "static/media/Brunao2.jpg": "/portfolio/static/media/Brunao2.ea26f7dfa7188fb7664f.jpg",
+    "static/media/tcc_p60_0.jpg": "/portfolio/static/media/tcc_p60_0.08e3860166e19062e8e4.jpg",
+    "static/media/tcc_p67_0.jpg": "/portfolio/static/media/tcc_p67_0.0fe00c6084bf89668c7b.jpg",
+    "static/media/004.jpg": "/portfolio/static/media/004.35bb6acc50ad8dfa318c.jpg",
+    "static/media/tcc_p54_0.jpg": "/portfolio/static/media/tcc_p54_0.48861230cf1d091a5851.jpg",
+    "static/media/tcc_p66_1.jpg": "/portfolio/static/media/tcc_p66_1.9b4f74e8cb0756478c3e.jpg",
     "static/media/tcc_p59_0.png": "/portfolio/static/media/tcc_p59_0.94f7719ce5e0475d629e.png",
+    "static/media/tcc_p65_0.jpg": "/portfolio/static/media/tcc_p65_0.8cd648d4a50b801f68ab.jpg",
     "static/media/tcc_p58_0.png": "/portfolio/static/media/tcc_p58_0.e5d371adfcacbb62fe58.png",
+    "static/media/001.jpg": "/portfolio/static/media/001.6fd49cffac98db608edf.jpg",
     "index.html": "/portfolio/index.html",
-    "main.aeccde1d.js.map": "/portfolio/static/js/main.aeccde1d.js.map"
+    "main.c3334ba4.js.map": "/portfolio/static/js/main.c3334ba4.js.map"
   },
   "entrypoints": [
-    "static/js/main.aeccde1d.js"
+    "static/js/main.c3334ba4.js"
   ]
 }
