@@ -19,7 +19,7 @@
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: https:;
-        connect-src 'self' https://api.emailjs.com;
+        connect-src 'self' https://api.emailjs.com https://discord.com;
         frame-src https://doraalves.github.io https://blackvisesdi.github.io https://www.spatial.io;
         object-src 'none';
         base-uri 'self';
@@ -50,10 +50,19 @@
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=League+Spartan:wght@300;400;500&display=swap" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=League+Spartan:wght@300;400;500&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=League+Spartan:wght@300;400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <title>iza.dev</title>
   </head>

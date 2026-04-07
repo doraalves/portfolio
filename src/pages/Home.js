@@ -19,11 +19,12 @@ const TICKER_ITEMS = [
   'WebSockets', 'PostgreSQL', 'Figma', 'Meta Quest',
 ]
 
+const TICKER_ALL = [...TICKER_ITEMS, ...TICKER_ITEMS]
+
 export default function Home({ onNavigate }) {
   const [roleIdx, setRoleIdx] = useState(0)
   const [exiting, setExiting] = useState(false)
 
-  // Role cycling
   useEffect(() => {
     const id = setInterval(() => {
       setExiting(true)
@@ -35,13 +36,13 @@ export default function Home({ onNavigate }) {
     return () => clearInterval(id)
   }, [])
 
-  // Magnetic buttons
   const btnPrimaryRef = useRef(null)
   const btnOutlineRef = useRef(null)
 
   const applyMagnet = useCallback((ref, e) => {
     const el = ref.current
     if (!el) return
+    el.style.transform = ''
     const rect = el.getBoundingClientRect()
     const cx = rect.left + rect.width / 2
     const cy = rect.top + rect.height / 2
@@ -68,9 +69,6 @@ export default function Home({ onNavigate }) {
     window.addEventListener('mousemove', handler, { passive: true })
     return () => window.removeEventListener('mousemove', handler)
   }, [applyMagnet])
-
-  // Duplicar items para loop contínuo
-  const allItems = [...TICKER_ITEMS, ...TICKER_ITEMS]
 
   return (
     <Wrapper>
@@ -109,7 +107,7 @@ export default function Home({ onNavigate }) {
 
       <VerticalTicker>
         <VerticalTrack aria-hidden="true">
-          {allItems.map((item, i) => (
+          {TICKER_ALL.map((item, i) => (
             <VerticalItem key={i}>{item}</VerticalItem>
           ))}
         </VerticalTrack>

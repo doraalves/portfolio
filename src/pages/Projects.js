@@ -1,4 +1,5 @@
 import React from 'react'
+import { notifyProjectClick } from '../utils/notifyVisit'
 import {
   Page, Section, SectionHeader, SectionTag, H2,
   Grid, GridInternal,
@@ -6,6 +7,7 @@ import {
   CardBody, CardNum, CardTitle, CardDesc,
   StackRow, StackTag,
   CardLinks, LinkBtn, InternalBadge,
+  StatusBadge,
   Divider, DividerLabel,
   Footer, FooterCopy, FooterDot,
 } from '../styles/Projects.styled'
@@ -32,7 +34,14 @@ export default function Projects() {
             <Card key={p.num}>
               <CardThumb src={p.thumb} alt={p.title} loading="lazy" />
               <CardBody>
-                <CardNum>{p.num}</CardNum>
+                <CardNum>
+                  {p.num}
+                  {p.status && (
+                    <StatusBadge $wip={p.status === 'em desenvolvimento'}>
+                      {p.status}
+                    </StatusBadge>
+                  )}
+                </CardNum>
                 <CardTitle>{p.title}</CardTitle>
                 <CardDesc>{p.desc}</CardDesc>
                 <StackRow>
@@ -40,8 +49,8 @@ export default function Projects() {
                 </StackRow>
                 <CardLinks>
                   {p.link && (
-                    <LinkBtn href={p.link} target="_blank" rel="noreferrer">
-                      <ExternalIcon /> Ver ao vivo
+                    <LinkBtn href={p.link} target="_blank" rel="noreferrer" onClick={() => notifyProjectClick(p.title)}>
+                      <ExternalIcon /> Ver projeto
                     </LinkBtn>
                   )}
                   {p.github && (
@@ -69,7 +78,14 @@ export default function Projects() {
           {withoutPreview.map((p) => (
             <Card key={p.num} $internal>
               <CardBody>
-                <CardNum>{p.num}</CardNum>
+                <CardNum>
+                  {p.num}
+                  {p.status && (
+                    <StatusBadge $wip={p.status === 'em desenvolvimento'}>
+                      {p.status}
+                    </StatusBadge>
+                  )}
+                </CardNum>
                 <CardTitle>{p.title}</CardTitle>
                 <CardDesc>{p.desc}</CardDesc>
                 <StackRow>

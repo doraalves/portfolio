@@ -2,11 +2,14 @@ import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { WhatsAppIcon, GitHubIcon, LinkedInIcon, InstagramIcon, SendIcon } from '../components/Icons'
 import {
-  Page, Inner, PageHeader, SectionTag, H2,
-  TwoCol, ContactInfo, InfoText,
+  Page,
+  Hero, HeroInner, HeroTag, BigTitle,
+  Section, TwoCol,
+  ContactInfo, InfoText,
   AvailLabel, AvailChips, Chip,
   DirectLink, SocialRow, SocialLink,
-  FormCard, FormTitle, FormGroup, Label, Input, Textarea,
+  FormRow, FormGroup, Label, Input,
+  TextareaWrap, Textarea, CharCount,
   SendBtn, SuccessMsg, ErrorMsg,
   FooterNote,
 } from '../styles/Contact.styled'
@@ -15,7 +18,8 @@ const EMAILJS_SERVICE_ID  = process.env.REACT_APP_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY  = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-const AVAIL = ["Freelance", "Remoto", "Híbrido", "CLT"];
+const MAX_MSG = 500
+const AVAIL = ["Freelance", "Remoto", "Híbrido", "CLT"]
 
 export default function Contact() {
   const formRef = useRef()
@@ -41,18 +45,21 @@ export default function Contact() {
     }
   }
 
-  const isValid  = form.from_name && form.from_email && form.message
+  const isValid   = form.from_name && form.from_email && form.message
   const isSending = status === 'sending'
-  const year = new Date().getFullYear()
+  const year      = new Date().getFullYear()
+  const msgLen    = form.message.length
 
   return (
     <Page>
-      <Inner>
-        <PageHeader>
-          <SectionTag>contato</SectionTag>
-          <H2>Vamos <em>trabalhar juntos</em>?</H2>
-        </PageHeader>
+      <Hero>
+        <HeroInner>
+          <HeroTag>contato</HeroTag>
+          <BigTitle>Vamos <em>trabalhar</em> juntos?</BigTitle>
+        </HeroInner>
+      </Hero>
 
+      <Section>
         <TwoCol>
           <ContactInfo>
             <InfoText>
@@ -78,14 +85,13 @@ export default function Contact() {
                 <LinkedInIcon /> LinkedIn
               </SocialLink>
               <SocialLink href="https://www.instagram.com/izadoraaalves" target="_blank" rel="noreferrer">
-                <InstagramIcon size={15} /> Instagram
+                <InstagramIcon size={14} /> Instagram
               </SocialLink>
             </SocialRow>
           </ContactInfo>
 
-          <FormCard>
-            <FormTitle>Enviar mensagem</FormTitle>
-            <form ref={formRef} onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
+            <FormRow>
               <FormGroup>
                 <Label htmlFor="from_name">Nome</Label>
                 <Input
@@ -110,34 +116,40 @@ export default function Contact() {
                   disabled={isSending}
                 />
               </FormGroup>
-              <FormGroup>
-                <Label htmlFor="message">Deixe aqui sua mensagem:</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Conte um pouco sobre o projeto ou oportunidade..."
-                  value={form.message}
-                  onChange={handleChange}
-                  disabled={isSending}
-                />
-              </FormGroup>
-              <SendBtn type="submit" disabled={!isValid || isSending}>
-                <SendIcon />
-                {isSending ? 'Enviando...' : 'Enviar mensagem'}
-              </SendBtn>
+            </FormRow>
 
-              {status === 'success' && (
-                <SuccessMsg>✓ Mensagem enviada! Responderei em breve.</SuccessMsg>
-              )}
-              {status === 'error' && (
-                <ErrorMsg>✗ Erro ao enviar. Tente pelo WhatsApp.</ErrorMsg>
-              )}
-            </form>
-          </FormCard>
+            <TextareaWrap>
+              <Label htmlFor="message">Mensagem</Label>
+              <Textarea
+                id="message"
+                name="message"
+                placeholder="Conte sobre o projeto ou oportunidade..."
+                value={form.message}
+                onChange={handleChange}
+                disabled={isSending}
+                maxLength={MAX_MSG}
+              />
+              <CharCount $near={msgLen > MAX_MSG * 0.8}>
+                {msgLen}/{MAX_MSG}
+              </CharCount>
+            </TextareaWrap>
+
+            <SendBtn type="submit" disabled={!isValid || isSending}>
+              <SendIcon />
+              {isSending ? 'Enviando...' : 'Enviar mensagem'}
+            </SendBtn>
+
+            {status === 'success' && (
+              <SuccessMsg>✓ Mensagem enviada! Responderei em breve.</SuccessMsg>
+            )}
+            {status === 'error' && (
+              <ErrorMsg>✗ Erro ao enviar. Tente pelo WhatsApp.</ErrorMsg>
+            )}
+          </form>
         </TwoCol>
+      </Section>
 
-        <FooterNote>© {year} Izadora Alves · São Gonçalo, RJ</FooterNote>
-      </Inner>
+      <FooterNote>© {year} Izadora Alves · São Gonçalo, RJ</FooterNote>
     </Page>
   )
 }

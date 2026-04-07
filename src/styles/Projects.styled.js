@@ -132,6 +132,9 @@ export const CardNum = styled.p`
   color: var(--accent);
   letter-spacing: 0.14em;
   opacity: 0.6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 export const CardTitle = styled.h3`
@@ -211,4 +214,29 @@ export const InternalBadge = styled.span`
   opacity: 0.45;
 `;
 
-export const Hint = styled.p``;
+export const StatusBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  border: 1px solid ${({ $wip }) => ($wip ? 'rgba(200,25,26,0.4)' : 'var(--line)')};
+  color: ${({ $wip }) => ($wip ? 'var(--accent)' : 'var(--ink-soft)')};
+  background: ${({ $wip }) => ($wip ? 'rgba(200,25,26,0.06)' : 'transparent')};
+  opacity: ${({ $wip }) => ($wip ? 1 : 0.55)};
+
+  ${({ $wip }) => $wip && `
+    &::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+  `}
+`;
