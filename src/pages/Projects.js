@@ -17,8 +17,8 @@ import projects from '../data/projects'
 export default function Projects() {
   const year = new Date().getFullYear()
 
-  const withPreview  = projects.filter(p => p.thumb)
-  const withoutPreview = projects.filter(p => !p.thumb)
+  const withPreview    = projects.filter(p => p.preview)
+  const withoutPreview = projects.filter(p => !p.preview)
 
   return (
     <Page>
@@ -32,7 +32,7 @@ export default function Projects() {
         <Grid>
           {withPreview.map((p) => (
             <Card key={p.num}>
-              <CardThumb src={p.thumb} alt={p.title} loading="lazy" />
+              {p.thumb && <CardThumb src={p.thumb} alt={p.title} loading="lazy" />}
               <CardBody>
                 <CardNum>
                   {p.num}
