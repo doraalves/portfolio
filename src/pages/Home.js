@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import ParticleCanvas from '../components/ParticleCanvas'
+import { LinkedInIcon } from '../components/Icons'
 import {
   Wrapper, Content, Inner, Tag, RoleText, Title, Bio,
   Actions, BtnPrimary, BtnOutline,
   VerticalTicker, VerticalTrack, VerticalItem,
   FooterLine, Location, Avail, Dot,
+  FooterSocials, FooterSocialLink,
 } from '../styles/Home.styled'
 
 const ROLES = [
@@ -115,6 +117,15 @@ export default function Home({ onNavigate }) {
 
       <FooterLine>
         <Location>São Gonçalo · RJ</Location>
+        <FooterSocials>
+          <FooterSocialLink
+            href="https://www.linkedin.com/in/izadoraalves/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LinkedInIcon /> LinkedIn
+          </FooterSocialLink>
+        </FooterSocials>
         <Avail><Dot />disponível para projetos</Avail>
       </FooterLine>
     </Wrapper>

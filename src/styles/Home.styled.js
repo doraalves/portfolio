@@ -290,3 +290,36 @@ export const Dot = styled.span`
   animation: ${pulse} 2s infinite;
   opacity: 1 !important;
 `;
+
+export const FooterSocials = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const FooterSocialLink = styled.a`
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-soft);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  [data-theme="dark"] & {
+    color: rgba(245, 240, 234, 0.22);
+    opacity: 1;
+
+    &:hover {
+      color: rgba(245, 240, 234, 0.7);
+    }
+  }
+`;
